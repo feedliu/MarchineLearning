@@ -13,9 +13,9 @@ column_names = ['Sample code number', 'Clump Thickness', 'Uniformity of Cell Siz
 data = pd.read_csv("http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data",
                    names=column_names)
 
-data = data.replace(to_replace = '?', value = np.nan);
+data = data.replace(to_replace = '?', value = np.nan)
 
-data = data.dropna(how='any');
+data = data.dropna(how='any')
 
 X_train, X_test, y_train, y_test = train_test_split(data[column_names[1:10]],data[column_names[10]],
                                                     test_size=0.25, random_state=2017)
