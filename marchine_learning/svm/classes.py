@@ -275,8 +275,10 @@ def main():
     load data
     '''
     data = pd.read_csv('/home/LiuYao/Documents/MarchineLearning/data.csv')
+    
     x = mat(data[['x', 'y']].values)
     y = mat(data['label'].values).T
+    y[y == 0] = -1
     print "x.shape = ", x.shape
     print "y.shape = ", y.shape
 

@@ -28,27 +28,26 @@ def plot(x_train, y_train, theta):
         plt.plot(x1, x2)
         plt.show()
 
-def train():
-    x, y = load_data()
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
-    lr = LogisticRegression.LogisticRegression(iterator_num=100)
-    lr.train(x_train.values, y_train.values.T)
-    y_predict = lr.predict(x_test.values)
-    y_predict[y_predict > 0.5] = 1
-    y_predict[y_predict < 0.5] = 0
-    print lr.theta
-    print "accuracy : ", np.sum(y_predict.getA()[0] == y_test.values) / (len(y_test) * 1.0)
+# def train():
+#     x, y = load_data()
+#     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+#     lr = LogisticRegression(iterator_num=100)
+#     lr.train(x_train.values, y_train.values.T)
+#     y_predict = lr.predict(x_test.values)
+#     y_predict[y_predict > 0.5] = 1
+#     y_predict[y_predict < 0.5] = 0
+#     print lr.theta
+#     print "accuracy : ", np.sum(y_predict.getA()[0] == y_test.values) / (len(y_test) * 1.0)
 
 def main():
     '''
     program entry
     '''
     x, y = load_data()
-    lr = LogisticRegression.LogisticRegression(iterator_num=5, optimization='sgd')
+    lr = LogisticRegression(iterator_num=5, optimization='sgd')
     lr.train(x.values, y.values.T)
     print lr.theta
     plot(x, y, lr.theta)
-    # train()
 
 if __name__ == '__main__':
     main()
