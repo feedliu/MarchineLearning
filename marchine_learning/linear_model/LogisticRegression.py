@@ -42,6 +42,7 @@ class LogisticRegression(object):
             self.__gradient_decent__(x_train, y_train)
         elif(self.optimization == 'sgd'):
             self.__stochastic_gradient_decent__(x_train, y_train)
+        return self.theta
 
     def sigmoid(self, x):
         return 1.0 / (1.0 + np.exp(-x))
